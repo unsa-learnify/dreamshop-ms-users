@@ -17,9 +17,9 @@ import { Role } from 'src/users/domain/models/role.model';
 import { UserRestPageRequest } from './dtos/user.rest.page.request';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-@Controller('/api/v1/users')
 @ApiTags('Users')
 @ApiBearerAuth()
+@Controller('/api/v1/users')
 export class UserRestController {
   constructor(private readonly userService: UserService) {}
   @Post()

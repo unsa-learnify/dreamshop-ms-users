@@ -44,7 +44,7 @@ export class UserKeycloakPersistenceAdapter implements UserPersistencePort {
           'Failed to create user in Keycloak',
         );
       }
-      const guestRole = await this.getRoleByName('guest');
+      const guestRole = await this.getRoleByName('Client');
       await this.assignRoleToUserInKeycloak(createdUser.id, guestRole);
       const userFromKeycloak = await this.getUserFromKeycloak(createdUser.id);
       userFromKeycloak.realmRoles = [guestRole.name];
