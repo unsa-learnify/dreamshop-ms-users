@@ -1,0 +1,1150 @@
+{
+	"info": {
+		"_postman_id": "7e9c90bf-b83b-4206-9d4a-9e1fe847b786",
+		"name": "DreamShop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28629003"
+	},
+	"item": [
+		{
+			"name": "Warehouses",
+			"item": [
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Create One Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Electrodomésticos y Tecnología\",\r\n    \"description\": \"Una amplia gama de electrodomésticos y dispositivos tecnológicos para el hogar, como televisores, refrigeradores, lavadoras, computadoras y más.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{warehousesServer}}/{{categories}}",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{categories}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{categories}}?page=0&size=10&name=&description=",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{categories}}"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "description",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find One Category By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{categories}}/1",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{categories}}",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update One Category By Id",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Deportes y Aire Libre\",\r\n    \"description\": \"Equipo deportivo, ropa, y accesorios para actividades al aire libre y ejercicio físico.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{warehousesServer}}/{{categories}}/1",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{categories}}",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete One Category By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{categories}}/2",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{categories}}",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Create One Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Random\",\r\n    \"description\": \"Ratón ergonómico con 6 botones programables y sensor de alta precisión.\",\r\n    \"code\": \"123-78-901-2345-6\",\r\n    \"unitPrice\": 29.99,\r\n    \"currency\": \"PEN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Categories To Product By Id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryIds\": [\r\n        1,\r\n        3\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}/2/categories",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}",
+										"2",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Product By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}/1",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Export Products to PDF",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}/reports",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}",
+										"reports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update One Product By Id",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Wireless Headphones\",\r\n    \"description\": \"High-quality wireless headphones with noise cancellation and 30-hour battery life.\",\r\n    \"code\": \"123-78-901-2345-6\",\r\n    \"unitPrice\": 120.00,\r\n    \"currency\": \"EUR\",\r\n    \"quantity\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}/2",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete One Product By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}/6",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Categories To Product By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryIds\": [\r\n        1,\r\n        3\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{warehousesServer}}/{{products}}/2/categories",
+									"host": [
+										"{{warehousesServer}}"
+									],
+									"path": [
+										"{{products}}",
+										"2",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Keycloak",
+			"item": [
+				{
+					"name": "Get Token With Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{keycloakClientId}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{keycloakClientSecret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "{{keycloakGrantType}}",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "ahincho@unsa.edu.pe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "@ahincho@dev@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{keycloakServerUrl}}/realms/{{keycloakRealm}}/protocol/openid-connect/token",
+							"host": [
+								"{{keycloakServerUrl}}"
+							],
+							"path": [
+								"realms",
+								"{{keycloakRealm}}",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token With Username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{keycloakClientId}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{keycloakClientSecret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "{{keycloakGrantType}}",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "ahincho",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "@ahincho@dev@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{keycloakServerUrl}}/realms/{{keycloakRealm}}/protocol/openid-connect/token",
+							"host": [
+								"{{keycloakServerUrl}}"
+							],
+							"path": [
+								"realms",
+								"{{keycloakRealm}}",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create One User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Fabiola Grissel\",\r\n    \"lastname\": \"Tapara Quispe\",\r\n    \"username\": \"ftapara\",\r\n    \"email\": \"ftapara@unsa.edu.pe\",\r\n    \"password\": \"ftapara@dev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Users By Page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users?page=0&size=5",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Users By Role and Page Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users/roles/Client?page=0&size=5",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"roles",
+								"Client"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users/8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One User By Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Boris Giovanni\",\r\n    \"lastname\": \"Ancasi Carlos\",\r\n    \"email\": \"bancasi@unsa.edu.pe\",\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users/8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Role By User Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users/8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b/roles/Supplier",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b",
+								"roles",
+								"Supplier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One User By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users/8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"8ba1eb39-9b1f-4d15-9dae-3e8d5620a06b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role By User Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{usersServer}}/api/v1/users/b1f71cbd-ee8a-49ee-8266-e9ec1b495b9c/roles/guest",
+							"host": [
+								"{{usersServer}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"b1f71cbd-ee8a-49ee-8266-e9ec1b495b9c",
+								"roles",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Gateway",
+			"item": [
+				{
+					"name": "Pets",
+					"item": [
+						{
+							"name": "Get Pets",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwtToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/pets",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pets Options  (CORS)",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "OPTIONS",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/pets",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Create One Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Electrodomésticos y Tecnología\",\r\n    \"description\": \"Una amplia gama de electrodomésticos y dispositivos tecnológicos para el hogar, como televisores, refrigeradores, lavadoras, computadoras y más.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiGateway}}/categories",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/categories?page=0&size=10&name=",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"categories"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "name",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find One Category By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/categories/1",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update One Category By Id",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Deportes y Aire Libre\",\r\n    \"description\": \"Equipo deportivo, ropa, y accesorios para actividades al aire libre y ejercicio físico.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiGateway}}/categories/1",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete One Category By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/categories/2",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"categories",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Categories Options (CORS)",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "OPTIONS",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/categories",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Create One Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Gaming\",\r\n    \"description\": \"Ratón ergonómico con 6 botones programables y sensor de alta precisión.\",\r\n    \"code\": \"012-78-901-2345-6\",\r\n    \"unitPrice\": 29.99,\r\n    \"currency\": \"PEN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiGateway}}/products",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Categories To Product By Id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryIds\": [\r\n        1,\r\n        3\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiGateway}}/products/1/categories",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products",
+										"1",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/products?page=0&size=10",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Product By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/products/1",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Export Products to PDF",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/products/reports",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products",
+										"reports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update One Product By Id",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Wireless Headphones\",\r\n    \"description\": \"High-quality wireless headphones with noise cancellation and 30-hour battery life.\",\r\n    \"code\": \"123-78-901-2345-6\",\r\n    \"unitPrice\": 120.00,\r\n    \"currency\": \"EUR\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiGateway}}/products/1",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete One Product By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{apiGateway}}/products/1",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Categories To Product By Id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryIds\": [\r\n        1,\r\n        3\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiGateway}}/products/2/categories",
+									"host": [
+										"{{apiGateway}}"
+									],
+									"path": [
+										"products",
+										"2",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{jwtToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "warehousesServer",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "usersServer",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "keycloakServerUrl",
+			"value": "https://dream-shop-sso.fly.dev",
+			"type": "string"
+		},
+		{
+			"key": "keycloakRealm",
+			"value": "quick-mart",
+			"type": "string"
+		},
+		{
+			"key": "keycloakClientId",
+			"value": "ecommerce",
+			"type": "string"
+		},
+		{
+			"key": "keycloakClientSecret",
+			"value": "iCYu2M61Q4PzKfxk7cCo61umUfo9LIWG",
+			"type": "string"
+		},
+		{
+			"key": "keycloakGrantType",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"key": "jwtToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI4NkJyejNYcnI5QW5BaXN0QklFZjZrTVlzYVIzdW81M0JPcGRLXzBzejZvIn0.eyJleHAiOjE3MzI3Mzc5MDIsImlhdCI6MTczMjczNzYwMiwianRpIjoiZjM2NTYzMTgtMjc2YS00NjBmLThlOTctZjQ1NGUzY2ZhNGEwIiwiaXNzIjoiaHR0cHM6Ly9kcmVhbS1zaG9wLXNzby5mbHkuZGV2L3JlYWxtcy9xdWljay1tYXJ0IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6Ijc3OGRmMWFmLWNjODUtNGNhYS1hMmE1LTMzYTBjNGY2OTQ5ZCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImVjb21tZXJjZSIsInNpZCI6IjIwZjE4ZGJhLTMzM2UtNDliNC1hOTEwLWU4NzU2YWZmYWVhYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiIsImh0dHA6Ly9sb2NhbGhvc3Q6OTAwMC8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1xdWljay1tYXJ0Il19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiZWNvbW1lcmNlIjp7InJvbGVzIjpbIkVtcGxveWVlIiwiU3VwcGxpZXIiLCJNYW5hZ2VyIiwiQ2xpZW50Il19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IkFuZ2VsIEVkdWFyZG8gSGluY2hvIEpvdmUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhaGluY2hvIiwiZ2l2ZW5fbmFtZSI6IkFuZ2VsIEVkdWFyZG8iLCJmYW1pbHlfbmFtZSI6IkhpbmNobyBKb3ZlIiwiZW1haWwiOiJhaGluY2hvQHVuc2EuZWR1LnBlIn0.g2v03X_cplI5trPIqjSlhNvmGgwPpRqH1BXltGjc6jtnbpD4O6UAXA3_9UW4v4b7Oc2GzgxbOUydCTEqfhQTGpZwPxUoJgbM424eRvL5V9rY2RH73ZLDn1YVrCZVCCwSEay64jFRUKU-WNGZewzcmisDKpsgBswfDFN4PFZfmbXeatK6I31VNG-SFbREhdnHEIaPV8cVBtSUubCIayid3_-vQ9meXpCca8q9kATp1OHu6TKLH3gzVkdQGSit4gN3sw5pqVrvG78PeNW2zrg614HjN7jSFTTfrUgQreRL0PlRyyCY87ydzlbzR8tOAh7FCRjHkxoqbY6-u2mJVci3-Q",
+			"type": "string"
+		},
+		{
+			"key": "apiGateway",
+			"value": "https://j397tzpv9f.execute-api.us-east-1.amazonaws.com/production",
+			"type": "string"
+		},
+		{
+			"key": "categories",
+			"value": "api/v1/categories",
+			"type": "string"
+		},
+		{
+			"key": "products",
+			"value": "api/v1/products",
+			"type": "string"
+		}
+	]
+}
