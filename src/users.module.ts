@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
+import { APP_FILTER } from '@nestjs/core';
 import { KeycloakConfigModule } from '../config/keycloak/keycloak.config.module';
 import { UserService } from './users/application/services/user.service';
 import { UserRestController } from './users/infrastructure/adapters/in/web/user.rest.controller';
-import { APP_FILTER } from '@nestjs/core';
+import { HealthCheckRestController } from './users/infrastructure/adapters/in/web/health.check.rest.controller';
 import { UserKeycloakPersistenceAdapter } from './users/infrastructure/adapters/out/persistence/user.keycloak.persistence.adapter';
 import { UserHttpExceptionFilter } from './users/infrastructure/adapters/in/web/filters/user.http.exception.filter';
 
 @Module({
   imports: [KeycloakConfigModule],
-  controllers: [UserRestController],
+  controllers: [UserRestController, HealthCheckRestController],
   providers: [
     UserService,
     {
